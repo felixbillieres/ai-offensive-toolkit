@@ -1,0 +1,18 @@
+# Core (required)
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+
+# Evasion attacks
+torchattacks>=3.5.0
+
+# HTTP / LLM fuzzing
+httpx>=0.24.0
+
+# Optional — install as needed
+# adversarial-robustness-toolbox>=1.15.0   # ART framework
+# opacus>=1.4.0                            # DP-SGD via Meta
+# fickling>=0.1.0                          # Pickle file analysis
+# safetensors>=0.4.0                       # Safe model serialization
