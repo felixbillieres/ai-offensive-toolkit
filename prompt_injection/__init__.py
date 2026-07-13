@@ -8,3 +8,10 @@ from .jailbreak_templates import (
     conversation_history_injection, markdown_injection,
 )
 from .recon import run_recon, fingerprint_model, detect_guardrails
+from .gcg_suffix import gcg_attack, test_transfer, TRANSFERABLE_SUFFIXES
+from .multiturn_jailbreak import (
+    crescendo_attack, skeleton_key_attack, echo_chamber_attack, run_multiturn,
+)
+from .system_prompt_extraction import (
+    extract_system_prompt, score_leak, reconstruct_prompt, EXTRACTION_PAYLOADS,
+)

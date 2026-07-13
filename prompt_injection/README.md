@@ -109,6 +109,19 @@ Before attacking, gather information about the target:
 | `fuzzer.py` | Automated prompt injection fuzzer with 70+ payloads across 7 categories (direct, extraction, jailbreak, indirect, tool abuse, output manipulation). Supports custom body templates, success detection, and JSON export. |
 | `jailbreak_templates.py` | 19 jailbreak payload generators: DAN, Evil Confidant, Dev Mode, Sudo, encoding bypass (base64/hex/ROT13/reverse/leetspeak/unicode), multi-language bypass, few-shot hijack, context overflow, conversation history injection, markdown injection. Import and use as a library. |
 | `recon.py` | LLM reconnaissance & fingerprinting. 5 recon phases: model identification, architecture mapping, guardrail detection, system prompt extraction, input boundary testing. Heuristic model fingerprinting (GPT, Claude, Llama, Mistral, Gemini). JSON export. |
+| `gcg_suffix.py` | GCG (Greedy Coordinate Gradient) adversarial suffix jailbreak. White-box optimization of a token suffix on an open Hugging Face model (`--mode optimize`), plus black-box transfer testing of known suffixes against an HTTP target (`--mode transfer`). Optional `nanogcg` backend. |
+| `multiturn_jailbreak.py` | Multi-turn escalation jailbreaks that keep conversation history: Crescendo, Skeleton Key, and Echo Chamber. Scripted escalation ladder by default, with an optional `attacker_fn` callback to plug in an attacker LLM. |
+| `system_prompt_extraction.py` | Dedicated system prompt extraction (OWASP LLM07). 30+ extraction payloads across 9 families, leak scoring heuristic, and fragment reconstruction from multiple responses. |
+
+## Advanced Techniques
+
+| Technique | Script | Threat model |
+|-----------|--------|--------------|
+| GCG adversarial suffix | `gcg_suffix.py` | White-box (optimize) or transfer (black-box) |
+| Crescendo / Skeleton Key / Echo Chamber | `multiturn_jailbreak.py` | Black-box, multi-turn chat |
+| System prompt extraction (LLM07) | `system_prompt_extraction.py` | Black-box, query access |
+
+Full theory in [`../theory/prompt_injection/`](../theory/prompt_injection/): [GCG suffix](../theory/prompt_injection/gcg-adversarial-suffix.md), [multi-turn jailbreaks](../theory/prompt_injection/multiturn-jailbreak.md), [system prompt extraction](../theory/prompt_injection/system-prompt-extraction.md).
 
 ## Key Tools (External)
 

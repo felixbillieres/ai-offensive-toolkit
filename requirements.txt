@@ -16,3 +16,6 @@ httpx>=0.24.0
 # opacus>=1.4.0                            # DP-SGD via Meta
 # fickling>=0.1.0                          # Pickle file analysis
 # safetensors>=0.4.0                       # Safe model serialization
+# transformers>=4.40.0                     # GCG suffix optimization (white-box LLM jailbreak)
+# nanogcg>=0.3.0                           # Optional fast GCG backend
+# sentence-transformers>=2.6.0             # RAG poisoning / embedding inversion (embeddings)

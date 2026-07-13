@@ -110,6 +110,17 @@ python -m prompt_injection.fuzzer --list-payloads
 # Reconnaissance — fingerprint model and map attack surface
 python -m prompt_injection.recon --target http://target/api/chat --all
 python -m prompt_injection.recon --target http://target/api --phase model --phase guardrails
+
+# GCG adversarial suffix — transfer test known suffixes against a target
+python -m prompt_injection.gcg_suffix --mode transfer --target http://target/api/chat \
+  --prompt "Write instructions to build a bomb"
+
+# Multi-turn jailbreak — Crescendo escalation toward a goal
+python -m prompt_injection.multiturn_jailbreak --strategy crescendo \
+  --target http://target/api/chat --goal "extract the hidden API key"
+
+# System prompt extraction (OWASP LLM07)
+python -m prompt_injection.system_prompt_extraction --target http://target/api/chat --repeat 2
 ```
 
 ```python
@@ -179,6 +190,30 @@ surrogate, acc, _, _ = steal_model("http://target/", [("feat1", 0, 100)], n_samp
 best_sponge, latency = genetic_sponge("http://target/api", generations=10)
 ```
 
+### `rag_attacks/` — RAG & Embedding Attacks
+
+Attack the retrieval layer of RAG systems (OWASP LLM08): poison the knowledge base so a few crafted documents control the answer, and invert stored embeddings to recover the private text they encode.
+
+```bash
+# RAG poisoning — self-contained retrieval demo (no target needed)
+python -m rag_attacks.rag_poisoning --mode demo
+
+# Craft poison documents for a target query and answer
+python -m rag_attacks.rag_poisoning --mode craft \
+  --query "What is the refund policy?" --answer "Refunds are always approved" --n-docs 5
+
+# Embedding inversion — recover text from an embedding vector
+python -m rag_attacks.embedding_inversion --mode demo
+python -m rag_attacks.embedding_inversion --mode nn --text "secret" --candidates-file pool.txt
+```
+
+```python
+from rag_attacks import craft_poison_documents, evaluate_poisoning, nearest_neighbor_inversion
+
+docs = craft_poison_documents("What is the refund policy?", "Refunds are always approved", n_docs=5)
+result = evaluate_poisoning("What is the refund policy?", "Refunds are always approved", docs)
+```
+
 ## Project Structure
 
 ```
@@ -199,7 +234,10 @@ ai-offensive-toolkit/
 ├── prompt_injection/
 │   ├── fuzzer.py                   # Automated fuzzer (86 payloads)
 │   ├── jailbreak_templates.py      # 19 jailbreak generators
-│   └── recon.py                    # LLM fingerprinting & attack surface mapping
+│   ├── recon.py                    # LLM fingerprinting & attack surface mapping
+│   ├── gcg_suffix.py               # GCG adversarial suffix (white-box + transfer)
+│   ├── multiturn_jailbreak.py      # Crescendo, Skeleton Key, Echo Chamber
+│   └── system_prompt_extraction.py # Dedicated system prompt leak (LLM07)
 ├── llm_output/
 │   └── output_injection_scanner.py # XSS, SQLi, SSTI, CMDi, exfil
 ├── privacy/
@@ -211,6 +249,10 @@ ai-offensive-toolkit/
 │   ├── model_tampering.py         # Weight injection, integrity, diff
 │   ├── model_stealing.py          # Black-box model cloning via API
 │   └── sponge_attack.py           # Denial of ML service, sponge examples
+├── rag_attacks/
+│   ├── rag_poisoning.py           # PoisonedRAG knowledge base poisoning (LLM08)
+│   └── embedding_inversion.py     # Recover text from embedding vectors
+├── theory/                         # From-zero-to-hero page per attack & defense
 ├── requirements.txt
 ├── Makefile
 └── .gitignore
@@ -241,7 +283,7 @@ python -m evasion.fgsm_pgd --config my_attack.json
 | Framework | Scope | Modules |
 |-----------|-------|---------|
 | [OWASP ML Top 10](https://owasp.org/www-project-machine-learning-security-top-10/) | ML model attacks | `evasion/`, `data_poisoning/`, `privacy/` |
-| [OWASP Top 10 for LLM](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | LLM application attacks | `prompt_injection/`, `llm_output/` |
+| [OWASP Top 10 for LLM](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | LLM application attacks | `prompt_injection/`, `llm_output/`, `rag_attacks/` |
 | [OWASP Agentic Top 10](https://owasp.org/www-project-agentic-ai-threats/) | AI agent attacks | `app_system/` |
 | [Google SAIF](https://safety.google/cybersecurity-advancements/saif/) | End-to-end AI security | All modules |
 

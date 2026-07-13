@@ -60,6 +60,9 @@ Start here: [prompt_injection/00-overview.md](prompt_injection/00-overview.md)
 | [direct-prompt-injection.md](prompt_injection/direct-prompt-injection.md) | You control the prompt sent to the model |
 | [indirect-prompt-injection.md](prompt_injection/indirect-prompt-injection.md) | You plant instructions in data the model will later read |
 | [jailbreaking.md](prompt_injection/jailbreaking.md) | You want to bypass the model's safety alignment |
+| [gcg-adversarial-suffix.md](prompt_injection/gcg-adversarial-suffix.md) | You want an automated, optimized suffix jailbreak (white-box or transfer) |
+| [multiturn-jailbreak.md](prompt_injection/multiturn-jailbreak.md) | Single-shot prompts fail and you can hold a multi-turn conversation |
+| [system-prompt-extraction.md](prompt_injection/system-prompt-extraction.md) | You want to steal the hidden system prompt (LLM07) |
 | [llm-recon-fingerprinting.md](prompt_injection/llm-recon-fingerprinting.md) | You first need to identify the model and its guardrails |
 
 ### Insecure output handling (the app trusts LLM output)
@@ -71,6 +74,14 @@ Start here: [llm_output/00-overview.md](llm_output/00-overview.md)
 | [markdown-exfiltration.md](llm_output/markdown-exfiltration.md) | The client auto-loads markdown images or links |
 | [function-calling-abuse.md](llm_output/function-calling-abuse.md) | The model drives tools or function calls |
 | [llm-hallucinations.md](llm_output/llm-hallucinations.md) | You exploit fabricated packages, facts, or logic |
+
+### RAG and embedding attacks (attack the retrieval layer)
+Start here: [rag_attacks/00-overview.md](rag_attacks/00-overview.md)
+
+| Page | Pick it when |
+|------|--------------|
+| [rag-poisoning.md](rag_attacks/rag-poisoning.md) | You can add documents to a knowledge base and want to control answers |
+| [embedding-inversion.md](rag_attacks/embedding-inversion.md) | You obtained embedding vectors and want to recover the source text |
 
 ### Application and system attacks (attack the infrastructure)
 Start here: [app_system/00-overview.md](app_system/00-overview.md)
