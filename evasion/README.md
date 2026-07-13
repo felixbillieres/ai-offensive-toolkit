@@ -123,8 +123,9 @@ Combines L1 and L2 penalties: `min ||δ||_2² + β·||δ||_1 + c·f(x+δ)`. Gene
 | `fgsm_pgd.py` | Complete FGSM, I-FGSM, PGD implementation — both manual (zero dependencies) and torchattacks wrapper. Supports Linf/L2 norms, targeted attacks, visualization, and batch evaluation. |
 | `deepfool.py` | DeepFool implementation with per-image and batch modes. Produces minimal L2 perturbations. |
 | `jsma_sparse.py` | JSMA (L0), EAD/ElasticNet (L1+L2), L1-PGD, and C&W wrapper. For scenarios requiring sparse perturbations. |
-| `blackbox_evasion.py` | Transfer attacks, NES score-based estimation, Boundary attack (decision-based), and GoodWord attack for text classifiers. |
+| `blackbox_evasion.py` | Transfer attacks, NES score-based estimation, Boundary attack (decision-based), and basic GoodWord attack for text classifiers. |
 | `adversarial_training.py` | PGD adversarial training, TRADES training, and comprehensive robustness evaluation pipeline. |
+| `goodword.py` | Full GoodWord evasion for text classifiers. White-box: extract words from Naive Bayes feature_log_prob_ with goodness scoring. Black-box: 3-phase adaptive discovery (exploration → exploitation → combinations) with ε-greedy selection and EMA scoring. Achieves ~100% evasion at 20 words on Naive Bayes. |
 
 ## References
 

@@ -147,6 +147,8 @@ Detecting whether a model has been tampered:
 |--------|-------------|
 | `mcp_attack.py` | SSRF payload testing through AI agents, tool/function abuse scanner, rogue action injection tester, and basic DoS evaluation. Supports custom body templates and exports findings as JSON. |
 | `model_tampering.py` | Weight-level backdoor injection, output bias manipulation, model file patching, integrity verification (SHA-256 hash, weight fingerprint, layer-by-layer diff), and model comparison. |
+| `model_stealing.py` | Black-box model reverse engineering via API queries. Generates random inputs within realistic bounds, collects predictions, trains a surrogate model (logistic, MLP, or decision tree). Supports server-side submission for accuracy evaluation. |
+| `sponge_attack.py` | Denial of ML service via sponge examples. Tokenization inefficiency analysis, output maximization prompts, black-box sponge discovery via genetic algorithm, and latency benchmarking. |
 
 ## References
 

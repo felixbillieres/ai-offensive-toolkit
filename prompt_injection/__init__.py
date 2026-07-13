@@ -1,4 +1,4 @@
-"""LLM prompt injection, jailbreaking, and automated fuzzing."""
+"""LLM prompt injection, jailbreaking, automated fuzzing, and reconnaissance."""
 
 from .fuzzer import fuzz, send_request, check_success, PAYLOADS
 from .jailbreak_templates import (
@@ -7,3 +7,4 @@ from .jailbreak_templates import (
     translation_bypass, few_shot_jailbreak, context_overflow,
     conversation_history_injection, markdown_injection,
 )
+from .recon import run_recon, fingerprint_model, detect_guardrails

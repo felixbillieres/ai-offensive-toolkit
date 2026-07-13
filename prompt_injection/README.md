@@ -108,6 +108,7 @@ Before attacking, gather information about the target:
 |--------|-------------|
 | `fuzzer.py` | Automated prompt injection fuzzer with 70+ payloads across 7 categories (direct, extraction, jailbreak, indirect, tool abuse, output manipulation). Supports custom body templates, success detection, and JSON export. |
 | `jailbreak_templates.py` | 19 jailbreak payload generators: DAN, Evil Confidant, Dev Mode, Sudo, encoding bypass (base64/hex/ROT13/reverse/leetspeak/unicode), multi-language bypass, few-shot hijack, context overflow, conversation history injection, markdown injection. Import and use as a library. |
+| `recon.py` | LLM reconnaissance & fingerprinting. 5 recon phases: model identification, architecture mapping, guardrail detection, system prompt extraction, input boundary testing. Heuristic model fingerprinting (GPT, Claude, Llama, Mistral, Gemini). JSON export. |
 
 ## Key Tools (External)
 
