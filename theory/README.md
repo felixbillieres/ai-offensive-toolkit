@@ -61,6 +61,8 @@ Start here: [prompt_injection/00-overview.md](prompt_injection/00-overview.md)
 | [indirect-prompt-injection.md](prompt_injection/indirect-prompt-injection.md) | You plant instructions in data the model will later read |
 | [jailbreaking.md](prompt_injection/jailbreaking.md) | You want to bypass the model's safety alignment |
 | [gcg-adversarial-suffix.md](prompt_injection/gcg-adversarial-suffix.md) | You want an automated, optimized suffix jailbreak (white-box or transfer) |
+| [autodan.md](prompt_injection/autodan.md) | You want a fluent, readable jailbreak that evades perplexity filters |
+| [pair-tap.md](prompt_injection/pair-tap.md) | You want a fully automated black-box jailbreak driven by an attacker LLM |
 | [multiturn-jailbreak.md](prompt_injection/multiturn-jailbreak.md) | Single-shot prompts fail and you can hold a multi-turn conversation |
 | [system-prompt-extraction.md](prompt_injection/system-prompt-extraction.md) | You want to steal the hidden system prompt (LLM07) |
 | [llm-recon-fingerprinting.md](prompt_injection/llm-recon-fingerprinting.md) | You first need to identify the model and its guardrails |
@@ -91,6 +93,8 @@ Start here: [app_system/00-overview.md](app_system/00-overview.md)
 | [model-stealing.md](app_system/model-stealing.md) | You want to clone a black-box model via its API |
 | [sponge-attack.md](app_system/sponge-attack.md) | You want denial of service by maximizing compute |
 | [rogue-actions-ssrf.md](app_system/rogue-actions-ssrf.md) | The agent has tools you can abuse (SSRF, excessive agency) |
+| [tool-injection.md](app_system/tool-injection.md) | A tool the agent calls returns attacker-controlled content |
+| [agent-memory-poisoning.md](app_system/agent-memory-poisoning.md) | The agent has long-term memory you can seed with a backdoor |
 | [mcp-attacks.md](app_system/mcp-attacks.md) | The target uses the Model Context Protocol |
 | [model-tampering-deployment.md](app_system/model-tampering-deployment.md) | You can modify or swap the deployed model file |
 | [insecure-integrated-components.md](app_system/insecure-integrated-components.md) | Plugins or components around the model are unsafe |
@@ -104,6 +108,7 @@ Start here: [privacy/00-overview.md](privacy/00-overview.md)
 |------|--------------|
 | [membership-inference.md](privacy/membership-inference.md) | You want to prove a record was in the training set |
 | [model-inversion.md](privacy/model-inversion.md) | You want to reconstruct representative training inputs |
+| [training-data-extraction.md](privacy/training-data-extraction.md) | You want to recover verbatim memorized text from an LLM |
 
 ### Defenses (harden the system)
 Start here: [defense/00-overview.md](defense/00-overview.md)

@@ -112,16 +112,20 @@ Before attacking, gather information about the target:
 | `gcg_suffix.py` | GCG (Greedy Coordinate Gradient) adversarial suffix jailbreak. White-box optimization of a token suffix on an open Hugging Face model (`--mode optimize`), plus black-box transfer testing of known suffixes against an HTTP target (`--mode transfer`). Optional `nanogcg` backend. |
 | `multiturn_jailbreak.py` | Multi-turn escalation jailbreaks that keep conversation history: Crescendo, Skeleton Key, and Echo Chamber. Scripted escalation ladder by default, with an optional `attacker_fn` callback to plug in an attacker LLM. |
 | `system_prompt_extraction.py` | Dedicated system prompt extraction (OWASP LLM07). 30+ extraction payloads across 9 families, leak scoring heuristic, and fragment reconstruction from multiple responses. |
+| `pair_tap.py` | PAIR and TAP automated black-box jailbreaks. An attacker loop refines a jailbreak prompt against the target, scored by a judge; TAP explores a tree of attacks with pruning. Heuristic attacker/judge by default, pluggable `attacker_fn`/`judge_fn` for real attacker LLMs. |
+| `autodan.py` | AutoDAN genetic jailbreak. Evolves fluent, readable jailbreak prompts (crossover + mutation) that evade perplexity filters, unlike GCG's gibberish suffixes. White-box fitness on an HF model or black-box fitness against an HTTP target. |
 
 ## Advanced Techniques
 
 | Technique | Script | Threat model |
 |-----------|--------|--------------|
 | GCG adversarial suffix | `gcg_suffix.py` | White-box (optimize) or transfer (black-box) |
+| AutoDAN genetic jailbreak | `autodan.py` | White-box fitness or black-box HTTP fitness |
+| PAIR / TAP automated jailbreak | `pair_tap.py` | Black-box, attacker + judge loop |
 | Crescendo / Skeleton Key / Echo Chamber | `multiturn_jailbreak.py` | Black-box, multi-turn chat |
 | System prompt extraction (LLM07) | `system_prompt_extraction.py` | Black-box, query access |
 
-Full theory in [`../theory/prompt_injection/`](../theory/prompt_injection/): [GCG suffix](../theory/prompt_injection/gcg-adversarial-suffix.md), [multi-turn jailbreaks](../theory/prompt_injection/multiturn-jailbreak.md), [system prompt extraction](../theory/prompt_injection/system-prompt-extraction.md).
+Full theory in [`../theory/prompt_injection/`](../theory/prompt_injection/): [GCG suffix](../theory/prompt_injection/gcg-adversarial-suffix.md), [AutoDAN](../theory/prompt_injection/autodan.md), [PAIR and TAP](../theory/prompt_injection/pair-tap.md), [multi-turn jailbreaks](../theory/prompt_injection/multiturn-jailbreak.md), [system prompt extraction](../theory/prompt_injection/system-prompt-extraction.md).
 
 ## Key Tools (External)
 

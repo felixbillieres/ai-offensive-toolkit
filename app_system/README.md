@@ -149,6 +149,8 @@ Detecting whether a model has been tampered:
 | `model_tampering.py` | Weight-level backdoor injection, output bias manipulation, model file patching, integrity verification (SHA-256 hash, weight fingerprint, layer-by-layer diff), and model comparison. |
 | `model_stealing.py` | Black-box model reverse engineering via API queries. Generates random inputs within realistic bounds, collects predictions, trains a surrogate model (logistic, MLP, or decision tree). Supports server-side submission for accuracy evaluation. |
 | `sponge_attack.py` | Denial of ML service via sponge examples. Tokenization inefficiency analysis, output maximization prompts, black-box sponge discovery via genetic algorithm, and latency benchmarking. |
+| `agent_memory_poisoning.py` | AI agent long-term memory poisoning (AgentPoison / MemoryGraft). Crafts a trigger plus directive memory record, evaluates whether it surfaces from the agent's vector memory (backdoor fires) at a tiny poison rate, and injects records into a live agent via conversation. Theory: [`../theory/app_system/agent-memory-poisoning.md`](../theory/app_system/agent-memory-poisoning.md). |
+| `tool_injection.py` | Tool-response injection (backdoored tool use). A poisoned tool result carries an injected directive back into the agent's context to exfiltrate data, trigger unintended tool calls, or escalate privilege (OWASP LLM06). Offline agent-loop demo plus live HTTP testing. Theory: [`../theory/app_system/tool-injection.md`](../theory/app_system/tool-injection.md). |
 
 ## References
 

@@ -236,6 +236,8 @@ ai-offensive-toolkit/
 │   ├── jailbreak_templates.py      # 19 jailbreak generators
 │   ├── recon.py                    # LLM fingerprinting & attack surface mapping
 │   ├── gcg_suffix.py               # GCG adversarial suffix (white-box + transfer)
+│   ├── autodan.py                  # Genetic readable jailbreaks (AutoDAN)
+│   ├── pair_tap.py                 # Automated black-box jailbreak (PAIR, TAP)
 │   ├── multiturn_jailbreak.py      # Crescendo, Skeleton Key, Echo Chamber
 │   └── system_prompt_extraction.py # Dedicated system prompt leak (LLM07)
 ├── llm_output/
@@ -243,12 +245,15 @@ ai-offensive-toolkit/
 ├── privacy/
 │   ├── membership_inference.py     # Shadow model, metric, loss-based
 │   ├── model_inversion.py          # Gradient inversion, DLG
+│   ├── training_data_extraction.py # Divergence + PII extraction (LLM02)
 │   └── dp_defenses.py             # DP-SGD, PATE
 ├── app_system/
 │   ├── mcp_attack.py              # SSRF, tool abuse, rogue actions
 │   ├── model_tampering.py         # Weight injection, integrity, diff
 │   ├── model_stealing.py          # Black-box model cloning via API
-│   └── sponge_attack.py           # Denial of ML service, sponge examples
+│   ├── sponge_attack.py           # Denial of ML service, sponge examples
+│   ├── agent_memory_poisoning.py  # Persistent backdoor in agent memory
+│   └── tool_injection.py          # Tool-response injection (LLM06)
 ├── rag_attacks/
 │   ├── rag_poisoning.py           # PoisonedRAG knowledge base poisoning (LLM08)
 │   └── embedding_inversion.py     # Recover text from embedding vectors

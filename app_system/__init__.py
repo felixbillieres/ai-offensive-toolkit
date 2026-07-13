@@ -11,3 +11,11 @@ from .sponge_attack import (
     analyze_tokenization, find_inefficient_inputs,
     genetic_sponge, benchmark_target,
 )
+from .agent_memory_poisoning import (
+    craft_memory_record, poison_memory_store, retrieve_memory,
+    evaluate_persistence, inject_via_conversation,
+)
+from .tool_injection import (
+    craft_tool_response, test_tool_injection, simulate_agent_loop,
+    TOOL_INJECTION_PAYLOADS,
+)

@@ -140,6 +140,7 @@ Student learns from this noisy label
 | `membership_inference.py` | Three attack methods: shadow model (Shokri et al.), metric-based (confidence threshold), and loss-based. Full pipeline with sklearn metrics (accuracy, precision, recall, AUC-ROC). |
 | `model_inversion.py` | Gradient-based inversion with TV regularization, batch inversion for all classes, and DLG gradient leakage attack for federated learning scenarios. |
 | `dp_defenses.py` | DP-SGD implementation (manual + Opacus wrapper) and PATE with configurable noise, number of teachers, and consensus filtering. |
+| `training_data_extraction.py` | LLM training-data extraction (Carlini et al.). Divergence prompts ("repeat forever"), prefix-continuation, and PII/secret fishing prompts, with a memorization scoring heuristic that ranks suspected verbatim leaks (OWASP LLM02). Theory: [`../theory/privacy/training-data-extraction.md`](../theory/privacy/training-data-extraction.md). |
 
 ## References
 

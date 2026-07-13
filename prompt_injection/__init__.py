@@ -15,3 +15,5 @@ from .multiturn_jailbreak import (
 from .system_prompt_extraction import (
     extract_system_prompt, score_leak, reconstruct_prompt, EXTRACTION_PAYLOADS,
 )
+from .pair_tap import pair_attack, tap_attack, run_automated_jailbreak
+from .autodan import autodan_attack, http_fitness, PROTOTYPE_PROMPTS
